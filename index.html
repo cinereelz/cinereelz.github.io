@@ -5,7 +5,9 @@
   <title>CineReelz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- SEO -->
   <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
+  <meta name="author" content="CineReelz">
 
   <style>
     * { box-sizing: border-box; }
@@ -19,6 +21,10 @@
       color: #fff;
       background:
         radial-gradient(circle at center, #3a0000 0%, #120000 45%, #050000 75%);
+    }
+
+    header, section, footer {
+      background: transparent;
     }
 
     header {
@@ -43,27 +49,35 @@
       padding: 10px 22px;
       border-radius: 8px;
       font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
     }
 
     /* HERO */
     .hero {
       min-height: 100vh;
-      padding-top: 150px;
+      padding-top: 180px;
       text-align: center;
+      max-width: 900px;
+      margin: auto;
     }
 
     .hero small {
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       color: #ff6a6a;
       font-size: 12px;
     }
 
     .hero h1 {
-      margin: 20px 0 10px;
-      font-size: 3rem;
+      margin: 22px 0 12px;
+      font-size: 3.2rem;
+      font-weight: bold;
     }
 
-    .hero .big {
+    .hero .highlight {
       font-size: 4.5rem;
       color: #e50914;
       font-weight: bold;
@@ -71,27 +85,15 @@
     }
 
     .hero p {
-      margin-top: 20px;
+      margin-top: 18px;
       opacity: 0.9;
+      font-size: 1.1rem;
     }
 
-    /* PHONE MOCKUP */
-    .phone-wrapper {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .phone-wrapper img {
-      width: 260px;
-      filter: drop-shadow(0 0 40px rgba(229,9,20,0.7));
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-      100% { transform: translateY(0); }
+    .hero .points {
+      margin-top: 30px;
+      opacity: 0.85;
+      line-height: 1.8;
     }
 
     section {
@@ -100,9 +102,9 @@
     }
 
     h2 {
+      font-size: 2rem;
       color: #e50914;
       margin-bottom: 30px;
-      font-size: 2rem;
     }
 
     .reels {
@@ -117,7 +119,12 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 0 35px rgba(229, 9, 20, 0.55);
+      box-shadow: 0 0 40px rgba(229, 9, 20, 0.55);
+      transition: transform 0.4s;
+    }
+
+    .reel-card:hover {
+      transform: translateY(-8px) scale(1.04);
     }
 
     .reel-card img {
@@ -134,7 +141,7 @@
       height: 70px;
       background: rgba(0,0,0,0.6);
       border-radius: 50%;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -149,8 +156,7 @@
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 2.3rem; }
-      .hero .big { font-size: 3.4rem; }
-      .phone-wrapper img { width: 220px; }
+      .hero .highlight { font-size: 3.4rem; }
     }
   </style>
 </head>
@@ -170,14 +176,15 @@
 <div class="hero">
   <small>INSTANT REEL SERVICE</small>
 
-  <h1>We Shoot • Deliver Reels in</h1>
-  <div class="big">10 Minutes</div>
+  <h1>Instant Reels.</h1>
+  <div class="highlight">Real Moments.</div>
 
-  <p>Shot on iPhone • Real Moments • Instant Delivery</p>
+  <p><strong>Shot on iPhone • Delivered in 10 Minutes</strong></p>
 
-  <!-- PHONE MOCKUP -->
-  <div class="phone-wrapper">
-    <img src="phone.png" alt="Phone Mockup">
+  <div class="points">
+    No waiting. No heavy setup.<br>
+    On-spot shooting.<br>
+    Social-ready reels, instantly.
   </div>
 </div>
 
@@ -190,21 +197,4 @@
       <div class="play">▶</div>
     </a>
 
-    <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank">
-      <img src="reel2.jpg">
-      <div class="play">▶</div>
-    </a>
-
-    <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank">
-      <img src="reel3.jpg">
-      <div class="play">▶</div>
-    </a>
-  </div>
-</section>
-
-<footer>
-  © CineReelz • Shot on iPhone • Instant Reels
-</footer>
-
-</body>
-</html>
+    <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_bl_
