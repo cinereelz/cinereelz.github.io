@@ -4,33 +4,39 @@
   <meta charset="UTF-8" />
   <title>CineReelz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes. Book now on WhatsApp.">
-<meta name="keywords" content="CineReelz, instant reels, iPhone reels, reel shooting service, Instagram reels India">
-<meta name="author" content="CineReelz">
 
+  <!-- SEO -->
+  <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
+  <meta name="author" content="CineReelz">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    body {
-      body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(180deg, #120000 0%, #000000 60%);
-  color: #fff;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at center, #3a0000 0%, #120000 45%, #050000 75%);
+    }
 
+    header, section, footer {
+      background: transparent;
     }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      background: #000;
+      width: 100%;
+      padding: 16px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 30px;
-      border-bottom: 1px solid #111;
       z-index: 1000;
     }
 
@@ -42,56 +48,76 @@
       background: #e50914;
       color: #fff;
       text-decoration: none;
-      padding: 10px 18px;
-      border-radius: 6px;
+      padding: 10px 20px;
+      border-radius: 8px;
       font-weight: bold;
       transition: 0.3s;
     }
 
     .btn:hover {
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
+    /* HERO */
     .hero {
+      min-height: 100vh;
+      padding-top: 160px;   /* pushes content down */
+      text-align: center;
+    }
+
+    .hero small {
+      letter-spacing: 2px;
+      color: #ff6a6a;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      margin: 20px 0 10px;
+      font-size: 3.2rem;
+      color: #ffffff;
+    }
+
+    .hero .big {
+      font-size: 4.5rem;
+      color: #e50914;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      opacity: 0.9;
+    }
+
+    section {
       padding: 90px 20px;
       text-align: center;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      color: #e50914;
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 70px 20px;
-      text-align: center;
-    }
-
     h2 {
-      margin-bottom: 30px;
       font-size: 2rem;
       color: #e50914;
+      margin-bottom: 30px;
     }
 
     .reels {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
       max-width: 1000px;
       margin: auto;
     }
 
     .reel-card {
       position: relative;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 0 25px rgba(229, 9, 20, 0.6);
-      transition: transform 0.3s;
+      box-shadow: 0 0 40px rgba(229, 9, 20, 0.55);
+      transition: transform 0.4s;
     }
 
     .reel-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px) scale(1.04);
     }
 
     .reel-card img {
@@ -104,27 +130,30 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3rem;
-      color: #fff;
-      background: rgba(0,0,0,0.5);
-      width: 70px;
-      height: 70px;
+      width: 72px;
+      height: 72px;
+      background: rgba(0,0,0,0.6);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 2.8rem;
     }
 
     footer {
-      padding: 30px;
+      padding: 40px 20px;
       text-align: center;
       font-size: 14px;
       color: #aaa;
-      border-top: 1px solid #111;
     }
 
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2.3rem; }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero .big {
+        font-size: 3.4rem;
+      }
     }
   </style>
 </head>
@@ -133,59 +162,42 @@
 
 <header>
   <img src="logo.png" alt="CineReelz Logo">
+
   <a class="btn"
      href="https://wa.me/919493903229?text=Hey%20CineReelz%20🎬%20I%20want%20to%20book%20an%20instant%20reel."
      target="_blank">
-    Book on WhatsApp
+    Contact Us
   </a>
 </header>
 
 <div class="hero">
-  <h1>CINEREELZ</h1>
-  <p><strong>Instant Reels. Real Moments.</strong></p>
-  <p>Shot on iPhone • Delivered in 10 Minutes</p>
-</div>
+  <small>INSTANT REEL SERVICE</small>
 
-<section>
-  <h2>About CineReelz</h2>
-  <p>
-    CineReelz captures cinematic reels using only an iPhone and delivers them
-    within just 10 minutes. Fast, clean, and made for social media.
-  </p>
-</section>
+  <h1>We Shoot • Deliver Reels in</h1>
+  <div class="big">10 Minutes</div>
+
+  <p>Shot on iPhone • Real Moments • Instant Delivery</p>
+</div>
 
 <section>
   <h2>Our Reels</h2>
 
   <div class="reels">
-
     <a class="reel-card" href="https://www.instagram.com/reel/DUHsX3yEt-K/" target="_blank">
-      <img src="reel1.jpg" alt="Reel 1">
+      <img src="reel1.jpg">
       <div class="play">▶</div>
     </a>
 
     <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank">
-      <img src="reel2.jpg" alt="Reel 2">
+      <img src="reel2.jpg">
       <div class="play">▶</div>
     </a>
 
     <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank">
-      <img src="reel3.jpg" alt="Reel 3">
+      <img src="reel3.jpg">
       <div class="play">▶</div>
     </a>
-
   </div>
-</section>
-
-<section>
-  <h2>Book a Reel</h2>
-  <p>Want a cinematic reel delivered instantly?</p>
-  <br>
-  <a class="btn"
-     href="https://wa.me/919493903229?text=Hey%20CineReelz%20🎬%20I%20want%20to%20book%20an%20instant%20reel."
-     target="_blank">
-    Book on WhatsApp
-  </a>
 </section>
 
 <footer>
