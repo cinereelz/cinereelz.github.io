@@ -5,14 +5,10 @@
   <title>CineReelz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
   <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
-  <meta name="author" content="CineReelz">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -23,10 +19,6 @@
       color: #fff;
       background:
         radial-gradient(circle at center, #3a0000 0%, #120000 45%, #050000 75%);
-    }
-
-    header, section, footer {
-      background: transparent;
     }
 
     header {
@@ -48,20 +40,15 @@
       background: #e50914;
       color: #fff;
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 8px;
       font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
     }
 
     /* HERO */
     .hero {
       min-height: 100vh;
-      padding-top: 160px;   /* pushes content down */
+      padding-top: 150px;
       text-align: center;
     }
 
@@ -73,8 +60,7 @@
 
     .hero h1 {
       margin: 20px 0 10px;
-      font-size: 3.2rem;
-      color: #ffffff;
+      font-size: 3rem;
     }
 
     .hero .big {
@@ -89,15 +75,34 @@
       opacity: 0.9;
     }
 
+    /* PHONE MOCKUP */
+    .phone-wrapper {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-wrapper img {
+      width: 260px;
+      filter: drop-shadow(0 0 40px rgba(229,9,20,0.7));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+
     section {
       padding: 90px 20px;
       text-align: center;
     }
 
     h2 {
-      font-size: 2rem;
       color: #e50914;
       margin-bottom: 30px;
+      font-size: 2rem;
     }
 
     .reels {
@@ -112,12 +117,7 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 0 40px rgba(229, 9, 20, 0.55);
-      transition: transform 0.4s;
-    }
-
-    .reel-card:hover {
-      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 0 35px rgba(229, 9, 20, 0.55);
     }
 
     .reel-card img {
@@ -130,14 +130,14 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 72px;
-      height: 72px;
+      width: 70px;
+      height: 70px;
       background: rgba(0,0,0,0.6);
       border-radius: 50%;
+      font-size: 2.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.8rem;
     }
 
     footer {
@@ -148,12 +148,9 @@
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .hero .big {
-        font-size: 3.4rem;
-      }
+      .hero h1 { font-size: 2.3rem; }
+      .hero .big { font-size: 3.4rem; }
+      .phone-wrapper img { width: 220px; }
     }
   </style>
 </head>
@@ -177,6 +174,11 @@
   <div class="big">10 Minutes</div>
 
   <p>Shot on iPhone • Real Moments • Instant Delivery</p>
+
+  <!-- PHONE MOCKUP -->
+  <div class="phone-wrapper">
+    <img src="phone.png" alt="Phone Mockup">
+  </div>
 </div>
 
 <section>
