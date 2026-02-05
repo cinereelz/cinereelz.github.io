@@ -26,22 +26,22 @@ header{
   top:0;
   width:100%;
   padding:14px 28px;
-  display:flex;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
   align-items:center;
-  justify-content:space-between;
   background:#14001f;
   z-index:1000;
 }
 header img{height:40px}
 
-/* ICON NAV IN HEADER */
+/* ICON NAV CENTER */
 .icon-nav{
   display:flex;
-  gap:26px;
+  justify-content:center;
+  gap:28px;
 }
 .icon-nav a{
   color:#8F3DFF;
-  transition:.3s;
 }
 .icon-nav a svg{
   width:20px;
@@ -54,11 +54,21 @@ header img{height:40px}
   filter:drop-shadow(0 0 8px rgba(178,102,255,.9));
 }
 
-/* RIGHT ACTIONS */
+/* RIGHT */
 .header-right{
   display:flex;
   align-items:center;
   gap:16px;
+}
+
+/* BUTTON */
+.btn{
+  background:#8F3DFF;
+  padding:10px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:bold;
 }
 
 /* INSTAGRAM */
@@ -67,16 +77,6 @@ header img{height:40px}
   height:22px;
   stroke:#8F3DFF;
   fill:none;
-}
-
-/* CTA */
-.btn{
-  background:#8F3DFF;
-  padding:10px 22px;
-  border-radius:10px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:bold;
 }
 
 /* HERO */
@@ -149,6 +149,7 @@ h2{color:#8F3DFF;margin-bottom:40px}
   border:1px solid rgba(143,61,255,.25);
   text-align:left;
 }
+.package h3{margin-top:0}
 .package .price{
   font-size:2.4rem;
   color:#8F3DFF;
@@ -180,15 +181,19 @@ h2{color:#8F3DFF;margin-bottom:40px}
   font-size:11px;
 }
 
-/* CENTER 4TH PACKAGE */
+/* CENTER 4TH SAME SIZE */
 .center-package{
   grid-column:1 / -1;
-  max-width:360px;
+  max-width:350px;
   margin:0 auto;
 }
 
 /* FAQ */
-.faq{max-width:800px;margin:auto;text-align:left}
+.faq{
+  max-width:900px;
+  margin:auto;
+  text-align:left;
+}
 .faq-item{
   background:rgba(255,255,255,0.06);
   padding:20px;
@@ -199,6 +204,7 @@ h2{color:#8F3DFF;margin-bottom:40px}
 /* MOBILE */
 @media(max-width:900px){
   .packages{grid-template-columns:1fr}
+  .center-package{max-width:100%}
 }
 </style>
 </head>
@@ -208,7 +214,6 @@ h2{color:#8F3DFF;margin-bottom:40px}
 <header>
   <img src="logo.png" alt="CineReelz">
 
-  <!-- ICONS MOVED INTO HEADER -->
   <div class="icon-nav">
     <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
     <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
@@ -277,7 +282,6 @@ h2{color:#8F3DFF;margin-bottom:40px}
       <a href="#">Book Now</a>
     </div>
 
-    <!-- CENTERED 4TH -->
     <div class="package center-package">
       <h3>Grand Finale</h3>
       <div class="price">₹72,999</div>
@@ -292,30 +296,18 @@ h2{color:#8F3DFF;margin-bottom:40px}
 <section id="faq">
   <h2>FAQs</h2>
   <div class="faq">
-    <div class="faq-item"><strong>Delivery time?</strong><br>Within 10 minutes.</div>
-    <div class="faq-item"><strong>Editing included?</strong><br>Yes, on iPhone.</div>
+    <div class="faq-item"><strong>How fast is delivery?</strong><br>Within 10 minutes after shoot.</div>
+    <div class="faq-item"><strong>Is editing included?</strong><br>Yes, edited instantly on iPhone.</div>
+    <div class="faq-item"><strong>Do you shoot only on iPhone?</strong><br>Yes, latest iPhone for consistency.</div>
+    <div class="faq-item"><strong>Do you provide raw footage?</strong><br>Included in selected packages.</div>
+    <div class="faq-item"><strong>Is advance booking required?</strong><br>Recommended for events.</div>
+    <div class="faq-item"><strong>Where do you operate?</strong><br>Currently serving Hyderabad.</div>
   </div>
 </section>
 
 <footer style="text-align:center;padding:40px;color:#aaa">
 © CineReelz • Hyderabad
 </footer>
-
-<script>
-const sections=document.querySelectorAll("section,.hero");
-const navLinks=document.querySelectorAll(".icon-nav a");
-
-window.addEventListener("scroll",()=>{
-  let current="";
-  sections.forEach(sec=>{
-    if(window.scrollY>=sec.offsetTop-200) current=sec.id;
-  });
-  navLinks.forEach(link=>{
-    link.classList.remove("active");
-    if(link.getAttribute("href")==="#"+current) link.classList.add("active");
-  });
-});
-</script>
 
 </body>
 </html>
