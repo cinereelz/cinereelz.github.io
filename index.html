@@ -8,9 +8,7 @@
   <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -31,12 +29,9 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      background: transparent;
     }
 
-    header img {
-      height: 44px;
-    }
+    header img { height: 44px; }
 
     .btn {
       background: #8F3DFF;
@@ -45,11 +40,6 @@
       padding: 12px 26px;
       border-radius: 10px;
       font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      opacity: 0.85;
     }
 
     /* HERO */
@@ -70,7 +60,6 @@
     .hero h1 {
       margin: 22px 0 12px;
       font-size: 3.2rem;
-      font-weight: bold;
     }
 
     .hero .big {
@@ -83,10 +72,9 @@
     .hero p {
       margin-top: 18px;
       opacity: 0.9;
-      font-size: 1.1rem;
     }
 
-    /* PHONE MOCKUP */
+    /* PHONE */
     .phone-wrapper {
       margin-top: 60px;
       display: flex;
@@ -96,14 +84,7 @@
     .phone-wrapper img {
       width: 360px;
       max-width: 90%;
-      filter: drop-shadow(0 0 55px rgba(143, 61, 255, 0.8));
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-18px); }
-      100% { transform: translateY(0); }
+      filter: drop-shadow(0 0 55px rgba(143,61,255,0.8));
     }
 
     section {
@@ -117,7 +98,7 @@
       font-size: 2rem;
     }
 
-    /* REELS – NORMAL GRID */
+    /* REELS */
     .reels {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -130,7 +111,7 @@
       position: relative;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 0 35px rgba(143, 61, 255, 0.55);
+      box-shadow: 0 0 35px rgba(143,61,255,0.55);
     }
 
     .reel-card img {
@@ -145,13 +126,58 @@
       transform: translate(-50%, -50%);
       width: 72px;
       height: 72px;
-      background: rgba(143, 61, 255, 0.25);
+      background: rgba(143,61,255,0.25);
       backdrop-filter: blur(6px);
       border-radius: 50%;
       font-size: 2.6rem;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* PACKAGES */
+    .packages {
+      max-width: 1100px;
+      margin: auto;
+      text-align: left;
+    }
+
+    .package-card {
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 35px;
+      margin-bottom: 40px;
+      box-shadow: 0 0 40px rgba(143,61,255,0.2);
+    }
+
+    .package-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+
+    .package-price {
+      font-size: 2.4rem;
+      color: #ff2d2d;
+      margin: 10px 0;
+    }
+
+    .package-tagline {
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+
+    .package-list {
+      color: #ff2d2d;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+    .terms {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 20px;
+      text-align: right;
     }
 
     footer {
@@ -173,7 +199,6 @@
 
 <header>
   <img src="logo.png" alt="CineReelz Logo">
-
   <a class="btn"
      href="https://wa.me/919493903229?text=Hey%20CineReelz%20🎬%20I%20want%20to%20book%20an%20instant%20reel."
      target="_blank">
@@ -183,10 +208,8 @@
 
 <div class="hero">
   <small>INSTANT REEL SERVICE</small>
-
   <h1>Instant Reels.</h1>
   <div class="big">Real Moments.</div>
-
   <p><strong>Shot on iPhone • Delivered in 10 Minutes</strong></p>
 
   <div class="phone-wrapper">
@@ -199,19 +222,79 @@
 
   <div class="reels">
     <a class="reel-card" href="https://www.instagram.com/reel/DUHsX3yEt-K/" target="_blank">
-      <img src="reel1.jpg" alt="Reel 1">
+      <img src="reel1.jpg">
       <div class="play">▶</div>
     </a>
 
     <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank">
-      <img src="reel2.jpg" alt="Reel 2">
+      <img src="reel2.jpg">
       <div class="play">▶</div>
     </a>
 
     <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank">
-      <img src="reel3.jpg" alt="Reel 3">
+      <img src="reel3.jpg">
       <div class="play">▶</div>
     </a>
+  </div>
+</section>
+
+<section>
+  <h2>Packages</h2>
+
+  <div class="packages">
+
+    <div class="package-card">
+      <div class="package-title">Standard Package</div>
+      <div class="package-price">₹9,999/-</div>
+      <div class="package-tagline">One experience. One story. Cinematically captured.</div>
+      <div class="package-list">
+        * ONE EVENT <br>
+        * 3 REELS PROFESSIONALLY CAPTURED <br>
+        * EDITED ON IPHONE <br>
+        * INCLUDING RAW FOOTAGE – INSTANT DELIVERY
+      </div>
+      <div class="terms">*Terms & Conditions Apply</div>
+    </div>
+
+    <div class="package-card">
+      <div class="package-title">Spotlight Package</div>
+      <div class="package-price">₹27,999/-</div>
+      <div class="package-tagline">Three events, one polished narrative</div>
+      <div class="package-list">
+        * COVERS THREE EVENTS <br>
+        * 12 REELS PROFESSIONALLY CAPTURED <br>
+        * EDITED ON IPHONE <br>
+        * INCLUDING RAW FOOTAGE – INSTANT DELIVERY
+      </div>
+      <div class="terms">*Terms & Conditions Apply</div>
+    </div>
+
+    <div class="package-card">
+      <div class="package-title">Premier Package</div>
+      <div class="package-price">₹45,999/-</div>
+      <div class="package-tagline">Every detail, from start to finish</div>
+      <div class="package-list">
+        * COVERS FOUR EVENTS <br>
+        * 15 REELS PROFESSIONALLY CAPTURED <br>
+        * EDITED ON IPHONE <br>
+        * INCLUDING RAW FOOTAGE
+      </div>
+      <div class="terms">*Terms & Conditions Apply</div>
+    </div>
+
+    <div class="package-card">
+      <div class="package-title">Grand Finale Package</div>
+      <div class="package-price">₹72,999/-</div>
+      <div class="package-tagline">The Entire Story</div>
+      <div class="package-list">
+        * COVERS SIX EVENTS <br>
+        * 24 REELS PROFESSIONALLY CAPTURED <br>
+        * EDITED ON IPHONE INCLUDING RAW FOOTAGE <br>
+        * INSTANT DELIVERY
+      </div>
+      <div class="terms">*Terms & Conditions Apply</div>
+    </div>
+
   </div>
 </section>
 
