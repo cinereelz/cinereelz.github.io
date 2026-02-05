@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CineReelz</title>
+<title>CineReelz – Instant iPhone Reels in 10 Minutes | Hyderabad</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
+
+<meta name="description" content="CineReelz delivers cinematic iPhone reels in just 10 minutes. Instant shooting, editing & delivery for events and creators in Hyderabad.">
 
 <style>
 *{box-sizing:border-box}
@@ -20,24 +21,6 @@ html,body{
     linear-gradient(180deg, #14001f 0%, #07000c 100%);
 }
 
-/* SOFT ANIMATED GLOW */
-body::before{
-  content:"";
-  position:fixed;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 30% 40%, rgba(143,61,255,0.25), transparent 60%),
-    radial-gradient(circle at 70% 60%, rgba(178,102,255,0.22), transparent 65%);
-  animation: glowMove 20s linear infinite;
-  z-index:-1;
-}
-
-@keyframes glowMove{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-120px)}
-  100%{transform:translateY(0)}
-}
-
 /* HEADER */
 header{
   position:fixed;
@@ -47,8 +30,8 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:1000;
   backdrop-filter:blur(12px);
+  z-index:1000;
 }
 header img{height:42px}
 .btn{
@@ -71,12 +54,8 @@ header img{height:42px}
   color:#8F3DFF;
   font-size:18px;
   text-decoration:none;
-  transition:.3s;
 }
-.icon-nav a:hover{
-  color:#B266FF;
-  transform:scale(1.2);
-}
+.icon-nav a:hover{color:#B266FF}
 
 /* HERO */
 .hero{
@@ -97,11 +76,15 @@ header img{height:42px}
   color:#8F3DFF;
   font-weight:bold;
 }
-.hero p{opacity:.9}
+.hero p{
+  opacity:.9;
+  max-width:600px;
+  margin:20px auto;
+}
 
-/* PHONE MOCKUP */
+/* PHONE */
 .phone-wrapper{
-  margin-top:55px;
+  margin-top:50px;
   display:flex;
   justify-content:center;
 }
@@ -152,6 +135,12 @@ h2{
   font-size:2.5rem;
 }
 
+/* SOCIAL PROOF */
+.social-proof{
+  margin-top:50px;
+  opacity:.85;
+}
+
 /* PACKAGES */
 .packages{
   display:grid;
@@ -168,11 +157,10 @@ h2{
   border:1px solid rgba(143,61,255,.25);
   box-shadow:0 0 65px rgba(143,61,255,.25);
   text-align:left;
-  transition:.3s;
+  position:relative;
 }
 .package:hover{
   transform:translateY(-6px);
-  box-shadow:0 0 95px rgba(143,61,255,.45);
 }
 .package h3{font-size:1.8rem}
 .package .tag{
@@ -184,7 +172,6 @@ h2{
   font-size:2.6rem;
   color:#8F3DFF;
   font-weight:bold;
-  margin-bottom:20px;
 }
 .package ul{
   list-style:none;
@@ -194,7 +181,6 @@ h2{
 .package ul li::before{
   content:"✔ ";
   color:#8F3DFF;
-  font-weight:bold;
 }
 .package a{
   display:block;
@@ -204,15 +190,39 @@ h2{
   padding:14px;
   border-radius:12px;
   color:#fff;
-  font-weight:bold;
   text-decoration:none;
+  font-weight:bold;
 }
 
-/* CENTER LAST PACKAGE */
+/* MOST POPULAR */
+.popular::before{
+  content:"MOST POPULAR";
+  position:absolute;
+  top:-12px;
+  right:20px;
+  background:#B266FF;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+/* CENTER LAST */
 .center-package{
-  grid-column:1 / -1;
+  grid-column:1/-1;
   max-width:360px;
   margin:0 auto;
+}
+
+/* FAQ */
+.faq{
+  max-width:700px;
+  margin:auto;
+  text-align:left;
+}
+.faq p{
+  margin-bottom:20px;
+  opacity:.9;
 }
 
 /* FOOTER */
@@ -237,8 +247,10 @@ footer{
 <body>
 
 <header>
-  <img src="logo.png" alt="CineReelz Logo">
-  <a class="btn" href="https://wa.me/919493903229" target="_blank">Book Your Slot Now</a>
+  <img src="logo.png">
+  <a class="btn" href="https://wa.me/919493903229?text=Hey%20CineReelz%20👋%0AI%20want%20to%20book%20a%20reel.%0AEvent%20Date:%0ALocation:%0APackage:" target="_blank">
+    Book Your Slot Now
+  </a>
 </header>
 
 <div class="icon-nav">
@@ -252,19 +264,25 @@ footer{
   <small>INSTANT REEL SERVICE</small>
   <h1>Instant Reels.</h1>
   <div class="big">Real Moments.</div>
-  <p>Shot on iPhone • Delivered in 10 Minutes</p>
+  <p>Shoot → Edit → Deliver in just <strong>10 minutes</strong>. No waiting.</p>
 
   <div class="phone-wrapper">
-    <img src="phone.png" alt="Phone Mockup">
+    <img src="phone.png">
   </div>
 </div>
 
 <section id="discover">
 <h2>Discover Vibes</h2>
+
 <div class="reels">
   <a class="reel-card"><img src="reel1.jpg"><div class="play">▶</div></a>
   <a class="reel-card"><img src="reel2.jpg"><div class="play">▶</div></a>
   <a class="reel-card"><img src="reel3.jpg"><div class="play">▶</div></a>
+</div>
+
+<div class="social-proof">
+  Trusted by creators & events • 100+ reels delivered <br>
+  <a href="https://www.instagram.com/cine_reelz_" target="_blank">@cine_reelz_</a>
 </div>
 </section>
 
@@ -275,61 +293,71 @@ footer{
 
 <div class="package">
 <h3>Standard Package</h3>
-<div class="tag">One experience. One story.</div>
+<div class="tag">Perfect for quick events</div>
 <div class="price">₹9,999/-</div>
 <ul>
-<li>One Event</li>
-<li>3 Reels Professionally Captured</li>
+<li>1 Event</li>
+<li>3 Reels</li>
 <li>Edited on iPhone</li>
-<li>Raw Footage + Instant Delivery</li>
+<li>Instant Delivery</li>
 </ul>
-<a href="https://wa.me/919493903229">Book Now</a>
+<a href="#">Book Now</a>
 </div>
 
-<div class="package">
+<div class="package popular">
 <h3>Spotlight Package</h3>
-<div class="tag">Three events, one narrative</div>
+<div class="tag">Best for creators & events</div>
 <div class="price">₹27,999/-</div>
 <ul>
-<li>Covers 3 Events</li>
-<li>12 Reels Captured</li>
+<li>3 Events</li>
+<li>12 Reels</li>
 <li>Edited on iPhone</li>
 <li>Raw Footage + Instant Delivery</li>
 </ul>
-<a href="https://wa.me/919493903229">Book Now</a>
+<a href="#">Book Now</a>
 </div>
 
 <div class="package">
 <h3>Premier Package</h3>
-<div class="tag">Every detail covered</div>
+<div class="tag">Complete coverage</div>
 <div class="price">₹45,999/-</div>
 <ul>
-<li>Covers 4 Events</li>
-<li>15 Reels Captured</li>
+<li>4 Events</li>
+<li>15 Reels</li>
 <li>Edited on iPhone</li>
 <li>Raw Footage Included</li>
 </ul>
-<a href="https://wa.me/919493903229">Book Now</a>
+<a href="#">Book Now</a>
 </div>
 
 <div class="package center-package">
 <h3>Grand Finale Package</h3>
-<div class="tag">The entire story</div>
+<div class="tag">Luxury experience</div>
 <div class="price">₹72,999/-</div>
 <ul>
-<li>Covers 6 Events</li>
-<li>24 Reels Captured</li>
+<li>6 Events</li>
+<li>24 Reels</li>
 <li>Edited on iPhone</li>
-<li>Raw Footage + Instant Delivery</li>
+<li>Instant Delivery</li>
 </ul>
-<a href="https://wa.me/919493903229">Book Now</a>
+<a href="#">Book Now</a>
 </div>
 
 </div>
 </section>
 
+<section>
+<h2>FAQs</h2>
+<div class="faq">
+<p><strong>When will I receive my reels?</strong><br>Within 10 minutes after shoot.</p>
+<p><strong>Is editing included?</strong><br>Yes, edited instantly on iPhone.</p>
+<p><strong>Do you provide raw footage?</strong><br>Included in selected packages.</p>
+</div>
+</section>
+
 <footer id="contact">
-© CineReelz • Shot on iPhone • Instant Reels
+We don’t just shoot reels. We deliver moments instantly.<br><br>
+© CineReelz
 </footer>
 
 </body>
