@@ -9,9 +9,7 @@
 
 <style>
 *{box-sizing:border-box}
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
@@ -35,6 +33,64 @@ header{
   z-index:1000;
 }
 header img{height:42px}
+.header-right{display:flex;align-items:center;gap:16px}
+
+/* CTA */
+.btn{
+  background:#8F3DFF;
+  color:#fff;
+  padding:12px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* INSTAGRAM ICON */
+.insta-link{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.insta-link svg{
+  width:22px;
+  height:22px;
+  stroke:#8F3DFF;
+  fill:none;
+}
+.insta-link:hover::after{
+  content:"Follow us on Instagram";
+  position:absolute;
+  top:32px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#8F3DFF;
+  padding:6px 10px;
+  font-size:11px;
+  border-radius:8px;
+  white-space:nowrap;
+}
+
+/* DESKTOP NAV */
+.icon-nav{
+  margin-top:90px;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+.icon-nav a{
+  color:#8F3DFF;
+  transition:.3s;
+}
+.icon-nav a svg{
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+  fill:none;
+}
+.icon-nav a.active{
+  color:#B266FF;
+  filter:drop-shadow(0 0 10px rgba(178,102,255,.9));
+}
 
 /* HERO */
 .hero{
@@ -42,12 +98,14 @@ header img{height:42px}
   padding-top:150px;
   text-align:center;
 }
+.hero small{letter-spacing:3px;color:#B266FF}
 .hero h1{font-size:3rem}
 .hero .big{
   font-size:4.6rem;
   color:#8F3DFF;
   font-weight:bold;
 }
+.hero p{max-width:600px;margin:20px auto;opacity:.9}
 
 /* SECTIONS */
 section{
@@ -62,33 +120,88 @@ section.active{
   50%{box-shadow:0 0 120px rgba(143,61,255,.25)}
   100%{box-shadow:0 0 0 rgba(143,61,255,0)}
 }
+h2{color:#8F3DFF;margin-bottom:40px}
 
-/* DESKTOP NAV */
-.icon-nav{
-  margin-top:90px;
-  display:flex;
-  justify-content:center;
-  gap:32px;
+/* REELS */
+.reels{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1000px;
+  margin:auto;
 }
-.icon-nav a{
-  color:#8F3DFF;
+.reel-card{
+  display:block;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 0 45px rgba(143,61,255,.55);
   transition:.3s;
 }
-.icon-nav a.active{
-  color:#B266FF;
-  filter:drop-shadow(0 0 12px rgba(178,102,255,.9));
+.reel-card:hover{transform:scale(1.03)}
+.reel-card img{width:100%;display:block}
+
+/* PACKAGES */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
 }
-.icon-nav svg{
-  width:22px;
-  height:22px;
-  stroke:currentColor;
-  fill:none;
+.package{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  padding:35px;
+  border:1px solid rgba(143,61,255,.25);
+  box-shadow:0 0 65px rgba(143,61,255,.25);
+  text-align:left;
+  position:relative;
+}
+.package h3{font-size:1.6rem}
+.package .tag{color:#B266FF;font-size:13px}
+.package .price{font-size:2.4rem;color:#8F3DFF;font-weight:bold}
+.package ul{list-style:none;padding:0}
+.package ul li::before{content:"✔ ";color:#8F3DFF}
+.package a{
+  display:block;
+  margin-top:20px;
+  background:#8F3DFF;
+  padding:14px;
+  border-radius:12px;
+  color:#fff;
+  text-decoration:none;
+  text-align:center;
+}
+
+/* POPULAR */
+.popular::before{
+  content:"MOST POPULAR";
+  position:absolute;
+  top:-12px;
+  right:20px;
+  background:#B266FF;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+/* FAQ */
+.faq{
+  max-width:800px;
+  margin:auto;
+  text-align:left;
+}
+.faq-item{
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(14px);
+  padding:20px;
+  border-radius:14px;
+  margin-bottom:16px;
 }
 
 /* MOBILE NAV */
-.mobile-nav{
-  display:none;
-}
+.mobile-nav{display:none}
 @media(max-width:768px){
   .icon-nav{display:none}
   .mobile-nav{
@@ -110,15 +223,13 @@ section.active{
     flex-direction:column;
     align-items:center;
     gap:4px;
-    transition:.3s;
   }
-  .mobile-nav a.active{
-    color:#B266FF;
-  }
+  .mobile-nav a.active{color:#B266FF}
   .mobile-nav svg{
     width:20px;
     height:20px;
     stroke:currentColor;
+    fill:none;
   }
 }
 </style>
@@ -128,9 +239,23 @@ section.active{
 
 <header>
   <img src="logo.png" alt="CineReelz">
+
+  <div class="header-right">
+    <a class="insta-link" href="https://www.instagram.com/cine_reelz_" target="_blank">
+      <svg viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/>
+        <circle cx="12" cy="12" r="5" stroke-width="2"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="#8F3DFF"/>
+      </svg>
+    </a>
+
+    <a class="btn" href="https://wa.me/919493903229?text=Hey%20CineReelz%20👋%0AI%20want%20to%20book%20a%20reel." target="_blank">
+      Book Your Slot Now
+    </a>
+  </div>
 </header>
 
-<!-- DESKTOP ICON NAV -->
+<!-- DESKTOP NAV -->
 <div class="icon-nav">
   <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
   <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
@@ -138,7 +263,7 @@ section.active{
   <a href="#faq"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></a>
 </div>
 
-<!-- MOBILE BOTTOM NAV -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav">
   <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg>Home</a>
   <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>Discover</a>
@@ -147,16 +272,80 @@ section.active{
 </div>
 
 <div class="hero" id="home">
-  <h1>Instant Reels</h1>
-  <div class="big">Real Moments</div>
+  <small>INSTANT REEL SERVICE</small>
+  <h1>Instant Reels.</h1>
+  <div class="big">Real Moments.</div>
+  <p>Shoot → Edit → Deliver in just <strong>10 minutes</strong>. No waiting.</p>
 </div>
 
-<section id="discover"><h2>Discover Vibes</h2></section>
-<section id="packages"><h2>Packages</h2></section>
-<section id="faq"><h2>FAQs</h2></section>
+<section id="discover">
+  <h2>Discover Vibes</h2>
+  <div class="reels">
+    <a class="reel-card" href="https://www.instagram.com/reel/DUHsX3yEt-K/" target="_blank"><img src="reel1.jpg"></a>
+    <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank"><img src="reel2.jpg"></a>
+    <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank"><img src="reel3.jpg"></a>
+  </div>
+</section>
+
+<section id="packages">
+  <h2>Packages</h2>
+
+  <div class="packages">
+    <div class="package">
+      <h3>Standard Package</h3>
+      <div class="tag">Perfect for quick events</div>
+      <div class="price">₹9,999/-</div>
+      <ul>
+        <li>1 Event</li>
+        <li>3 Reels</li>
+        <li>Edited on iPhone</li>
+        <li>Instant Delivery</li>
+      </ul>
+      <a href="https://wa.me/919493903229">Book Now</a>
+    </div>
+
+    <div class="package popular">
+      <h3>Spotlight Package</h3>
+      <div class="tag">Best for creators & events</div>
+      <div class="price">₹27,999/-</div>
+      <ul>
+        <li>3 Events</li>
+        <li>12 Reels</li>
+        <li>Edited on iPhone</li>
+        <li>Raw Footage + Instant Delivery</li>
+      </ul>
+      <a href="https://wa.me/919493903229">Book Now</a>
+    </div>
+
+    <div class="package">
+      <h3>Premier Package</h3>
+      <div class="tag">Complete coverage</div>
+      <div class="price">₹45,999/-</div>
+      <ul>
+        <li>4 Events</li>
+        <li>15 Reels</li>
+        <li>Edited on iPhone</li>
+        <li>Raw Footage Included</li>
+      </ul>
+      <a href="https://wa.me/919493903229">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>FAQs</h2>
+  <div class="faq">
+    <div class="faq-item"><strong>When will I receive my reels?</strong><br>Within 10 minutes after shoot.</div>
+    <div class="faq-item"><strong>Is editing included?</strong><br>Yes, edited instantly on iPhone.</div>
+    <div class="faq-item"><strong>Do you provide raw footage?</strong><br>Included in selected packages.</div>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:40px;color:#aaa">
+© CineReelz • Shot on iPhone • Instant Reels • Hyderabad
+</footer>
 
 <script>
-/* ACTIVE NAV + SECTION GLOW */
 const sections=document.querySelectorAll("section,.hero");
 const navLinks=document.querySelectorAll(".icon-nav a,.mobile-nav a");
 
@@ -170,7 +359,6 @@ window.addEventListener("scroll",()=>{
       sec.classList.remove("active");
     }
   });
-
   navLinks.forEach(link=>{
     link.classList.remove("active");
     if(link.getAttribute("href")==="#"+current){
@@ -179,12 +367,10 @@ window.addEventListener("scroll",()=>{
   });
 });
 
-/* iOS-STYLE HAPTIC FEEDBACK */
+/* iOS-style haptic */
 navLinks.forEach(link=>{
   link.addEventListener("click",()=>{
-    if(navigator.vibrate){
-      navigator.vibrate(10);
-    }
+    if(navigator.vibrate) navigator.vibrate(10);
   });
 });
 </script>
