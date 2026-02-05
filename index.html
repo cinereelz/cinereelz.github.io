@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <title>CineReelz – Instant iPhone Reels in 10 Minutes | Hyderabad</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="CineReelz delivers cinematic iPhone reels in just 10 minutes. Instant shooting, editing & delivery for events and creators in Hyderabad.">
+
+<meta name="description" content="CineReelz delivers cinematic iPhone reels in just 10 minutes. Shoot, edit & instant delivery for events and creators in Hyderabad.">
+
+<!-- SEO / SOCIAL PREVIEW -->
+<meta property="og:title" content="CineReelz – Instant Reels in 10 Minutes">
+<meta property="og:description" content="Shot on iPhone • Delivered in 10 Minutes • Hyderabad">
+<meta property="og:type" content="website">
+
+<!-- GOOGLE ANALYTICS (replace G-XXXXXXXXXX later) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
 
 <style>
 *{box-sizing:border-box}
@@ -32,11 +47,12 @@ header{
   backdrop-filter:blur(12px);
   z-index:1000;
 }
+header img{height:42px}
+
 .header-right{
   display:flex;
   align-items:center;
 }
-header img{height:42px}
 
 .btn{
   background:#8F3DFF;
@@ -45,33 +61,34 @@ header img{height:42px}
   border-radius:12px;
   text-decoration:none;
   font-weight:bold;
+  animation:pulseBtn 2.5s infinite;
 }
 
-/* INSTAGRAM ICON */
+@keyframes pulseBtn{
+  0%{box-shadow:0 0 0 rgba(143,61,255,.6)}
+  70%{box-shadow:0 0 25px rgba(143,61,255,.9)}
+  100%{box-shadow:0 0 0 rgba(143,61,255,0)}
+}
+
+/* INSTAGRAM ICON + TOOLTIP */
 .insta-link{
   margin-right:16px;
+  position:relative;
   display:flex;
   align-items:center;
-  transition:transform .3s ease, filter .3s ease;
 }
-.insta-link:hover{
-  transform:scale(1.15);
-  filter:drop-shadow(0 0 8px rgba(143,61,255,.8));
+.insta-link:hover::after{
+  content:"Follow us on Instagram";
+  position:absolute;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#8F3DFF;
+  padding:6px 10px;
+  font-size:11px;
+  border-radius:8px;
+  white-space:nowrap;
 }
-
-/* ICON NAV */
-.icon-nav{
-  margin-top:90px;
-  display:flex;
-  justify-content:center;
-  gap:28px;
-}
-.icon-nav a{
-  color:#8F3DFF;
-  font-size:18px;
-  text-decoration:none;
-}
-.icon-nav a:hover{color:#B266FF}
 
 /* HERO */
 .hero{
@@ -93,12 +110,12 @@ header img{height:42px}
   font-weight:bold;
 }
 .hero p{
-  opacity:.9;
   max-width:600px;
   margin:20px auto;
+  opacity:.9;
 }
 
-/* PHONE */
+/* PHONE MOCKUP */
 .phone-wrapper{
   margin-top:50px;
   display:flex;
@@ -108,6 +125,12 @@ header img{height:42px}
   width:360px;
   max-width:90%;
   filter:drop-shadow(0 0 70px rgba(143,61,255,.85));
+  animation:floatPhone 4s ease-in-out infinite;
+}
+@keyframes floatPhone{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+  100%{transform:translateY(0)}
 }
 
 /* SECTIONS */
@@ -121,7 +144,7 @@ h2{
   margin-bottom:40px;
 }
 
-/* REELS */
+/* REELS (STATIC) */
 .reels{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -130,25 +153,18 @@ h2{
   margin:auto;
 }
 .reel-card{
-  position:relative;
+  display:block;
   border-radius:18px;
   overflow:hidden;
   box-shadow:0 0 45px rgba(143,61,255,.55);
+  transition:.3s;
 }
-.reel-card img{width:100%}
-.play{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:rgba(143,61,255,.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:2.5rem;
+.reel-card:hover{
+  transform:scale(1.03);
+}
+.reel-card img{
+  width:100%;
+  display:block;
 }
 
 /* PACKAGES */
@@ -169,16 +185,26 @@ h2{
   text-align:left;
   position:relative;
 }
-.package:hover{transform:translateY(-6px)}
 .package h3{font-size:1.8rem}
-.package .tag{color:#B266FF;font-size:13px;margin:6px 0 15px}
+.package .tag{
+  color:#B266FF;
+  font-size:13px;
+  margin:6px 0 15px;
+}
 .package .price{
   font-size:2.6rem;
   color:#8F3DFF;
   font-weight:bold;
 }
-.package ul{list-style:none;padding:0;line-height:1.9}
-.package ul li::before{content:"✔ ";color:#8F3DFF}
+.package ul{
+  list-style:none;
+  padding:0;
+  line-height:1.9;
+}
+.package ul li::before{
+  content:"✔ ";
+  color:#8F3DFF;
+}
 .package a{
   display:block;
   margin-top:25px;
@@ -204,20 +230,12 @@ h2{
   font-weight:bold;
 }
 
-/* CENTER LAST */
+/* CENTER LAST PACKAGE */
 .center-package{
   grid-column:1/-1;
   max-width:360px;
   margin:0 auto;
 }
-
-/* FAQ */
-.faq{
-  max-width:700px;
-  margin:auto;
-  text-align:left;
-}
-.faq p{margin-bottom:20px;opacity:.9}
 
 /* FOOTER */
 footer{
@@ -244,25 +262,18 @@ footer{
   <img src="logo.png" alt="CineReelz Logo">
 
   <div class="header-right">
-    <!-- Instagram Logo -->
-    <a href="https://www.instagram.com/cine_reelz_" target="_blank" class="insta-link" aria-label="CineReelz Instagram">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path fill="#8F3DFF" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.8-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
+    <!-- Instagram -->
+    <a class="insta-link" href="https://www.instagram.com/cine_reelz_" target="_blank" onclick="gtag('event','instagram_click');">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#8F3DFF">
+        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 100 10 5 5 0 000-10z"/>
       </svg>
     </a>
 
-    <a class="btn" href="https://wa.me/919493903229?text=Hey%20CineReelz%20👋%0AI%20want%20to%20book%20a%20reel.%0AEvent%20Date:%0ALocation:%0APackage:" target="_blank">
+    <a class="btn" href="https://wa.me/919493903229?text=Hey%20CineReelz%20👋%0AI%20want%20to%20book%20a%20reel.%0AEvent%20Date:%0ALocation:%0APackage:" target="_blank" onclick="gtag('event','whatsapp_click');">
       Book Your Slot Now
     </a>
   </div>
 </header>
-
-<div class="icon-nav">
-  <a href="#home">⌂</a>
-  <a href="#discover">◉</a>
-  <a href="#packages">✦</a>
-  <a href="#contact">⟳</a>
-</div>
 
 <div class="hero" id="home">
   <small>INSTANT REEL SERVICE</small>
@@ -277,15 +288,82 @@ footer{
 
 <section id="discover">
 <h2>Discover Vibes</h2>
+
 <div class="reels">
-  <a class="reel-card"><img src="reel1.jpg"><div class="play">▶</div></a>
-  <a class="reel-card"><img src="reel2.jpg"><div class="play">▶</div></a>
-  <a class="reel-card"><img src="reel3.jpg"><div class="play">▶</div></a>
+  <a class="reel-card" href="https://www.instagram.com/cine_reelz_" target="_blank">
+    <img src="reel1.jpg">
+  </a>
+  <a class="reel-card" href="https://www.instagram.com/cine_reelz_" target="_blank">
+    <img src="reel2.jpg">
+  </a>
+  <a class="reel-card" href="https://www.instagram.com/cine_reelz_" target="_blank">
+    <img src="reel3.jpg">
+  </a>
+</div>
+</section>
+
+<section id="packages">
+<h2>Packages</h2>
+
+<div class="packages">
+
+<div class="package">
+<h3>Standard Package</h3>
+<div class="tag">Perfect for quick events</div>
+<div class="price">₹9,999/-</div>
+<ul>
+<li>1 Event</li>
+<li>3 Reels</li>
+<li>Edited on iPhone</li>
+<li>Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
+
+<div class="package popular">
+<h3>Spotlight Package</h3>
+<div class="tag">Best for creators & events</div>
+<div class="price">₹27,999/-</div>
+<ul>
+<li>3 Events</li>
+<li>12 Reels</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage + Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
+
+<div class="package">
+<h3>Premier Package</h3>
+<div class="tag">Complete coverage</div>
+<div class="price">₹45,999/-</div>
+<ul>
+<li>4 Events</li>
+<li>15 Reels</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage Included</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
+
+<div class="package center-package">
+<h3>Grand Finale Package</h3>
+<div class="tag">Luxury experience</div>
+<div class="price">₹72,999/-</div>
+<ul>
+<li>6 Events</li>
+<li>24 Reels</li>
+<li>Edited on iPhone</li>
+<li>Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
+
 </div>
 </section>
 
 <footer id="contact">
-© CineReelz • Shot on iPhone • Instant Reels
+© CineReelz • Shot on iPhone • Instant Reels • Hyderabad
 </footer>
 
 </body>
