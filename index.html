@@ -9,9 +9,11 @@
 
 <style>
 *{box-sizing:border-box}
-html,body{
+html{
+  scroll-behavior:smooth;
+}
+body{
   margin:0;
-  padding:0;
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
   background:
@@ -33,63 +35,6 @@ header{
   z-index:1000;
 }
 header img{height:42px}
-.header-right{display:flex;align-items:center}
-
-/* CTA */
-.btn{
-  background:#8F3DFF;
-  color:#fff;
-  padding:12px 26px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-/* INSTAGRAM ICON */
-.insta-link{
-  margin-right:16px;
-  position:relative;
-}
-.insta-link svg{
-  width:22px;
-  height:22px;
-  stroke:#8F3DFF;
-  fill:none;
-}
-.insta-link:hover::after{
-  content:"Follow us on Instagram";
-  position:absolute;
-  top:32px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#8F3DFF;
-  padding:6px 10px;
-  font-size:11px;
-  border-radius:8px;
-  white-space:nowrap;
-}
-
-/* DESKTOP TOP NAV */
-.icon-nav{
-  margin-top:90px;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-}
-.icon-nav a{
-  color:#8F3DFF;
-  transition:.3s;
-}
-.icon-nav a svg{
-  width:22px;
-  height:22px;
-  stroke:currentColor;
-  fill:none;
-}
-.icon-nav a.active{
-  color:#B266FF;
-  filter:drop-shadow(0 0 10px rgba(178,102,255,.8));
-}
 
 /* HERO */
 .hero{
@@ -97,6 +42,7 @@ header img{height:42px}
   padding-top:150px;
   text-align:center;
 }
+.hero h1{font-size:3rem}
 .hero .big{
   font-size:4.6rem;
   color:#8F3DFF;
@@ -105,12 +51,41 @@ header img{height:42px}
 
 /* SECTIONS */
 section{
-  padding:110px 20px;
+  padding:120px 20px;
   text-align:center;
 }
-h2{color:#8F3DFF}
+section.active{
+  animation:sectionGlow 2.5s ease;
+}
+@keyframes sectionGlow{
+  0%{box-shadow:0 0 0 rgba(143,61,255,0)}
+  50%{box-shadow:0 0 120px rgba(143,61,255,.25)}
+  100%{box-shadow:0 0 0 rgba(143,61,255,0)}
+}
 
-/* MOBILE BOTTOM NAV */
+/* DESKTOP NAV */
+.icon-nav{
+  margin-top:90px;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+.icon-nav a{
+  color:#8F3DFF;
+  transition:.3s;
+}
+.icon-nav a.active{
+  color:#B266FF;
+  filter:drop-shadow(0 0 12px rgba(178,102,255,.9));
+}
+.icon-nav svg{
+  width:22px;
+  height:22px;
+  stroke:currentColor;
+  fill:none;
+}
+
+/* MOBILE NAV */
 .mobile-nav{
   display:none;
 }
@@ -121,22 +96,29 @@ h2{color:#8F3DFF}
     position:fixed;
     bottom:0;
     width:100%;
-    background:rgba(20,0,31,.85);
-    backdrop-filter:blur(12px);
+    background:rgba(20,0,31,.9);
+    backdrop-filter:blur(14px);
     justify-content:space-around;
-    padding:12px 0;
+    padding:10px 0;
     z-index:999;
   }
   .mobile-nav a{
     color:#8F3DFF;
-  }
-  .mobile-nav a svg{
-    width:22px;
-    height:22px;
-    stroke:currentColor;
+    text-decoration:none;
+    font-size:11px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    transition:.3s;
   }
   .mobile-nav a.active{
     color:#B266FF;
+  }
+  .mobile-nav svg{
+    width:20px;
+    height:20px;
+    stroke:currentColor;
   }
 }
 </style>
@@ -145,19 +127,7 @@ h2{color:#8F3DFF}
 <body>
 
 <header>
-  <img src="logo.png">
-
-  <div class="header-right">
-    <a class="insta-link" href="https://www.instagram.com/cine_reelz_" target="_blank">
-      <svg viewBox="0 0 24 24">
-        <rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/>
-        <circle cx="12" cy="12" r="5" stroke-width="2"/>
-        <circle cx="17.5" cy="6.5" r="1.2" fill="#8F3DFF"/>
-      </svg>
-    </a>
-
-    <a class="btn" href="https://wa.me/919493903229">Book Your Slot Now</a>
-  </div>
+  <img src="logo.png" alt="CineReelz">
 </header>
 
 <!-- DESKTOP ICON NAV -->
@@ -165,15 +135,15 @@ h2{color:#8F3DFF}
   <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
   <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
   <a href="#packages"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg></a>
-  <a href="#contact"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></a>
+  <a href="#faq"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></a>
 </div>
 
 <!-- MOBILE BOTTOM NAV -->
 <div class="mobile-nav">
-  <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
-  <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
-  <a href="#packages"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg></a>
-  <a href="#contact"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></a>
+  <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg>Home</a>
+  <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg>Discover</a>
+  <a href="#packages"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg>Packages</a>
+  <a href="#faq"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg>FAQs</a>
 </div>
 
 <div class="hero" id="home">
@@ -183,22 +153,37 @@ h2{color:#8F3DFF}
 
 <section id="discover"><h2>Discover Vibes</h2></section>
 <section id="packages"><h2>Packages</h2></section>
-<section id="contact"><h2>FAQs</h2></section>
+<section id="faq"><h2>FAQs</h2></section>
 
 <script>
-const sections=document.querySelectorAll("section, .hero");
-const navLinks=document.querySelectorAll(".icon-nav a, .mobile-nav a");
+/* ACTIVE NAV + SECTION GLOW */
+const sections=document.querySelectorAll("section,.hero");
+const navLinks=document.querySelectorAll(".icon-nav a,.mobile-nav a");
 
 window.addEventListener("scroll",()=>{
   let current="";
   sections.forEach(sec=>{
-    const top=window.scrollY;
-    if(top>=sec.offsetTop-200) current=sec.id;
+    if(window.scrollY>=sec.offsetTop-200){
+      current=sec.id;
+      sec.classList.add("active");
+    }else{
+      sec.classList.remove("active");
+    }
   });
-  navLinks.forEach(a=>{
-    a.classList.remove("active");
-    if(a.getAttribute("href")==="#"+current){
-      a.classList.add("active");
+
+  navLinks.forEach(link=>{
+    link.classList.remove("active");
+    if(link.getAttribute("href")==="#"+current){
+      link.classList.add("active");
+    }
+  });
+});
+
+/* iOS-STYLE HAPTIC FEEDBACK */
+navLinks.forEach(link=>{
+  link.addEventListener("click",()=>{
+    if(navigator.vibrate){
+      navigator.vibrate(10);
     }
   });
 });
