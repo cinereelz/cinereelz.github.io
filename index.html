@@ -1,305 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CineReelz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>CineReelz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
 
-  <meta name="description" content="CineReelz creates instant cinematic reels shot on iPhone and delivered in just 10 minutes.">
+<style>
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  background:radial-gradient(circle at center,#2a003d 0%,#14001f 45%,#050008 75%);
+}
 
-  <style>
-    * { box-sizing: border-box; }
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:16px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+header img{height:44px}
+.btn{
+  background:#8F3DFF;
+  color:#fff;
+  padding:12px 26px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
-      background: radial-gradient(circle at center, #2a003d 0%, #14001f 45%, #050008 75%);
-    }
+/* HERO */
+.hero{
+  min-height:100vh;
+  padding-top:170px;
+  text-align:center;
+}
+.hero small{letter-spacing:3px;color:#B266FF}
+.hero h1{font-size:3rem;margin:20px 0}
+.hero .big{font-size:4.6rem;color:#8F3DFF;font-weight:bold}
+.hero p{opacity:.9}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
+/* REELS */
+section{padding:100px 20px;text-align:center}
+h2{color:#8F3DFF;font-size:2rem;margin-bottom:40px}
 
-    header img { height: 44px; }
+.reels{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1000px;
+  margin:auto;
+}
+.reel-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 0 35px rgba(143,61,255,.55);
+}
+.reel-card img{width:100%}
+.play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:rgba(143,61,255,.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.5rem;
+}
 
-    .btn {
-      background: #8F3DFF;
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 26px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
+/* PACKAGES – NEW DESIGN */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      padding-top: 170px;
-      text-align: center;
-      max-width: 900px;
-      margin: auto;
-    }
+.package{
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(12px);
+  border-radius:22px;
+  padding:35px;
+  box-shadow:0 0 50px rgba(143,61,255,.25);
+  text-align:left;
+}
 
-    .hero small {
-      letter-spacing: 3px;
-      color: #B266FF;
-      font-size: 12px;
-    }
+.package h3{
+  font-size:1.8rem;
+  margin-bottom:6px;
+}
+.package .tag{
+  color:#B266FF;
+  font-size:13px;
+  margin-bottom:15px;
+}
+.package .price{
+  font-size:2.6rem;
+  color:#8F3DFF;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+.package ul{
+  list-style:none;
+  padding:0;
+  line-height:1.9;
+}
+.package ul li::before{
+  content:"✔ ";
+  color:#8F3DFF;
+  font-weight:bold;
+}
+.package a{
+  display:block;
+  margin-top:25px;
+  background:#8F3DFF;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  color:#fff;
+  font-weight:bold;
+  text-decoration:none;
+}
 
-    .hero h1 {
-      margin: 22px 0 12px;
-      font-size: 3.2rem;
-    }
+footer{
+  padding:40px;
+  text-align:center;
+  font-size:14px;
+  color:#aaa;
+}
 
-    .hero .big {
-      font-size: 4.8rem;
-      color: #8F3DFF;
-      font-weight: bold;
-      line-height: 1;
-    }
-
-    .hero p {
-      margin-top: 18px;
-      opacity: 0.9;
-    }
-
-    /* PHONE */
-    .phone-wrapper {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .phone-wrapper img {
-      width: 360px;
-      max-width: 90%;
-      filter: drop-shadow(0 0 55px rgba(143,61,255,0.8));
-    }
-
-    section {
-      padding: 100px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #8F3DFF;
-      margin-bottom: 35px;
-      font-size: 2rem;
-    }
-
-    /* REELS */
-    .reels {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .reel-card {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 0 35px rgba(143,61,255,0.55);
-    }
-
-    .reel-card img {
-      width: 100%;
-      display: block;
-    }
-
-    .play {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 72px;
-      height: 72px;
-      background: rgba(143,61,255,0.25);
-      backdrop-filter: blur(6px);
-      border-radius: 50%;
-      font-size: 2.6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* PACKAGES */
-    .packages {
-      max-width: 1100px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .package-card {
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 35px;
-      margin-bottom: 40px;
-      box-shadow: 0 0 40px rgba(143,61,255,0.2);
-    }
-
-    .package-title {
-      font-size: 2.2rem;
-      font-weight: bold;
-    }
-
-    .package-price {
-      font-size: 2.4rem;
-      color: #ff2d2d;
-      margin: 10px 0;
-    }
-
-    .package-tagline {
-      opacity: 0.85;
-      margin-bottom: 25px;
-    }
-
-    .package-list {
-      color: #ff2d2d;
-      font-weight: bold;
-      line-height: 1.8;
-    }
-
-    .terms {
-      font-size: 12px;
-      opacity: 0.6;
-      margin-top: 20px;
-      text-align: right;
-    }
-
-    footer {
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2.4rem; }
-      .hero .big { font-size: 3.4rem; }
-      .phone-wrapper img { width: 280px; }
-    }
-  </style>
+@media(max-width:600px){
+.hero h1{font-size:2.3rem}
+.hero .big{font-size:3.4rem}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="CineReelz Logo">
-  <a class="btn"
-     href="https://wa.me/919493903229?text=Hey%20CineReelz%20🎬%20I%20want%20to%20book%20an%20instant%20reel."
-     target="_blank">
-    Book Your Slot Now
-  </a>
+  <img src="logo.png">
+  <a class="btn" href="https://wa.me/919493903229" target="_blank">Book Your Slot Now</a>
 </header>
 
 <div class="hero">
   <small>INSTANT REEL SERVICE</small>
   <h1>Instant Reels.</h1>
   <div class="big">Real Moments.</div>
-  <p><strong>Shot on iPhone • Delivered in 10 Minutes</strong></p>
-
-  <div class="phone-wrapper">
-    <img src="phone.png" alt="Phone Mockup">
-  </div>
+  <p>Shot on iPhone • Delivered in 10 Minutes</p>
 </div>
 
 <section>
-  <h2>Our Reels</h2>
-
-  <div class="reels">
-    <a class="reel-card" href="https://www.instagram.com/reel/DUHsX3yEt-K/" target="_blank">
-      <img src="reel1.jpg">
-      <div class="play">▶</div>
-    </a>
-
-    <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank">
-      <img src="reel2.jpg">
-      <div class="play">▶</div>
-    </a>
-
-    <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank">
-      <img src="reel3.jpg">
-      <div class="play">▶</div>
-    </a>
-  </div>
+<h2>Our Reels</h2>
+<div class="reels">
+  <a class="reel-card" href="#"><img src="reel1.jpg"><div class="play">▶</div></a>
+  <a class="reel-card" href="#"><img src="reel2.jpg"><div class="play">▶</div></a>
+  <a class="reel-card" href="#"><img src="reel3.jpg"><div class="play">▶</div></a>
+</div>
 </section>
 
 <section>
-  <h2>Packages</h2>
+<h2>Packages</h2>
+<div class="packages">
 
-  <div class="packages">
+<div class="package">
+<h3>Standard Package</h3>
+<div class="tag">One experience. One story.</div>
+<div class="price">₹9,999/-</div>
+<ul>
+<li>One Event</li>
+<li>3 Reels Professionally Captured</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage + Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
 
-    <div class="package-card">
-      <div class="package-title">Standard Package</div>
-      <div class="package-price">₹9,999/-</div>
-      <div class="package-tagline">One experience. One story. Cinematically captured.</div>
-      <div class="package-list">
-        * ONE EVENT <br>
-        * 3 REELS PROFESSIONALLY CAPTURED <br>
-        * EDITED ON IPHONE <br>
-        * INCLUDING RAW FOOTAGE – INSTANT DELIVERY
-      </div>
-      <div class="terms">*Terms & Conditions Apply</div>
-    </div>
+<div class="package">
+<h3>Spotlight Package</h3>
+<div class="tag">Three events, one narrative</div>
+<div class="price">₹27,999/-</div>
+<ul>
+<li>Covers 3 Events</li>
+<li>12 Reels Captured</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage + Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
 
-    <div class="package-card">
-      <div class="package-title">Spotlight Package</div>
-      <div class="package-price">₹27,999/-</div>
-      <div class="package-tagline">Three events, one polished narrative</div>
-      <div class="package-list">
-        * COVERS THREE EVENTS <br>
-        * 12 REELS PROFESSIONALLY CAPTURED <br>
-        * EDITED ON IPHONE <br>
-        * INCLUDING RAW FOOTAGE – INSTANT DELIVERY
-      </div>
-      <div class="terms">*Terms & Conditions Apply</div>
-    </div>
+<div class="package">
+<h3>Premier Package</h3>
+<div class="tag">Every detail covered</div>
+<div class="price">₹45,999/-</div>
+<ul>
+<li>Covers 4 Events</li>
+<li>15 Reels Captured</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage Included</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
 
-    <div class="package-card">
-      <div class="package-title">Premier Package</div>
-      <div class="package-price">₹45,999/-</div>
-      <div class="package-tagline">Every detail, from start to finish</div>
-      <div class="package-list">
-        * COVERS FOUR EVENTS <br>
-        * 15 REELS PROFESSIONALLY CAPTURED <br>
-        * EDITED ON IPHONE <br>
-        * INCLUDING RAW FOOTAGE
-      </div>
-      <div class="terms">*Terms & Conditions Apply</div>
-    </div>
+<div class="package">
+<h3>Grand Finale Package</h3>
+<div class="tag">The entire story</div>
+<div class="price">₹72,999/-</div>
+<ul>
+<li>Covers 6 Events</li>
+<li>24 Reels Captured</li>
+<li>Edited on iPhone</li>
+<li>Raw Footage + Instant Delivery</li>
+</ul>
+<a href="https://wa.me/919493903229">Book Now</a>
+</div>
 
-    <div class="package-card">
-      <div class="package-title">Grand Finale Package</div>
-      <div class="package-price">₹72,999/-</div>
-      <div class="package-tagline">The Entire Story</div>
-      <div class="package-list">
-        * COVERS SIX EVENTS <br>
-        * 24 REELS PROFESSIONALLY CAPTURED <br>
-        * EDITED ON IPHONE INCLUDING RAW FOOTAGE <br>
-        * INSTANT DELIVERY
-      </div>
-      <div class="terms">*Terms & Conditions Apply</div>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <footer>
-  © CineReelz • Shot on iPhone • Instant Reels
+© CineReelz • Shot on iPhone • Instant Reels
 </footer>
 
 </body>
