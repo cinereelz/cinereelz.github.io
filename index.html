@@ -13,10 +13,35 @@ html,body{
   padding:0;
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
-  background:radial-gradient(circle at center,#2a003d 0%,#14001f 45%,#050008 75%);
+  background:#050008;
+  overflow-x:hidden;
 }
 
-/* HEADER */
+/* ===== BEAUTIFUL BACKGROUND ===== */
+.bg-effects::before,
+.bg-effects::after{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(143,61,255,0.25), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(178,102,255,0.2), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(143,61,255,0.15), transparent 60%);
+  animation: floatBg 18s linear infinite;
+  z-index:-1;
+}
+.bg-effects::after{
+  animation-duration:28s;
+  opacity:.7;
+}
+
+@keyframes floatBg{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-120px)}
+  100%{transform:translateY(0)}
+}
+
+/* ===== HEADER ===== */
 header{
   position:fixed;
   top:0;
@@ -26,21 +51,41 @@ header{
   justify-content:space-between;
   align-items:center;
   z-index:1000;
+  backdrop-filter:blur(10px);
 }
-header img{height:44px}
+header img{height:42px}
 .btn{
   background:#8F3DFF;
   color:#fff;
   padding:12px 26px;
-  border-radius:10px;
+  border-radius:12px;
   text-decoration:none;
   font-weight:bold;
 }
 
-/* HERO */
+/* ===== ICON NAV ===== */
+.icon-nav{
+  margin-top:90px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  opacity:.9;
+}
+.icon-nav a{
+  color:#8F3DFF;
+  font-size:18px;
+  text-decoration:none;
+  transition:.3s;
+}
+.icon-nav a:hover{
+  color:#B266FF;
+  transform:scale(1.2);
+}
+
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
-  padding-top:160px;
+  padding-top:140px;
   text-align:center;
 }
 .hero small{
@@ -67,12 +112,12 @@ header img{height:44px}
 .phone-wrapper img{
   width:360px;
   max-width:90%;
-  filter:drop-shadow(0 0 55px rgba(143,61,255,.8));
+  filter:drop-shadow(0 0 60px rgba(143,61,255,.8));
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section{
-  padding:100px 20px;
+  padding:110px 20px;
   text-align:center;
 }
 h2{
@@ -81,7 +126,7 @@ h2{
   margin-bottom:40px;
 }
 
-/* REELS */
+/* ===== REELS ===== */
 .reels{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -111,7 +156,7 @@ h2{
   font-size:2.5rem;
 }
 
-/* PACKAGES */
+/* ===== PACKAGES ===== */
 .packages{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -120,23 +165,18 @@ h2{
   margin:auto;
 }
 .package{
-  background: rgba(255, 255, 255, 0.06); /* transparent glass */
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-radius: 22px;
-  padding: 35px;
-  border: 1px solid rgba(143, 61, 255, 0.25);
-  box-shadow:
-    0 0 60px rgba(143, 61, 255, 0.25),
-    inset 0 0 30px rgba(255,255,255,0.05);
-  text-align: left;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
+  border-radius:22px;
+  padding:35px;
+  border:1px solid rgba(143,61,255,.25);
+  box-shadow:0 0 60px rgba(143,61,255,.25);
+  text-align:left;
+  transition:.3s;
 }
-  .package:hover{
-  box-shadow:
-    0 0 80px rgba(143, 61, 255, 0.45),
-    inset 0 0 40px rgba(255,255,255,0.08);
-  transform: translateY(-6px);
-  transition: 0.3s ease;
+.package:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 90px rgba(143,61,255,.45);
 }
 .package h3{font-size:1.8rem}
 .package .tag{
@@ -179,7 +219,7 @@ h2{
   margin:0 auto;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   padding:40px;
   text-align:center;
@@ -198,36 +238,41 @@ footer{
 </style>
 </head>
 
-<body>
+<body class="bg-effects">
 
 <header>
-  <img src="logo.png" alt="CineReelz Logo">
-  <a class="btn" href="https://wa.me/919493903229" target="_blank">
-    Book Your Slot Now
-  </a>
+  <img src="logo.png">
+  <a class="btn" href="https://wa.me/919493903229" target="_blank">Book Your Slot Now</a>
 </header>
 
-<div class="hero">
+<div class="icon-nav">
+  <a href="#home">⌂</a>
+  <a href="#discover">◉</a>
+  <a href="#packages">✦</a>
+  <a href="#contact">⟳</a>
+</div>
+
+<div class="hero" id="home">
   <small>INSTANT REEL SERVICE</small>
   <h1>Instant Reels.</h1>
   <div class="big">Real Moments.</div>
   <p>Shot on iPhone • Delivered in 10 Minutes</p>
 
   <div class="phone-wrapper">
-    <img src="phone.png" alt="Phone Mockup">
+    <img src="phone.png">
   </div>
 </div>
 
-<section>
-<h2>Our Reels</h2>
+<section id="discover">
+<h2>Discover Vibes</h2>
 <div class="reels">
-  <a class="reel-card" href="#"><img src="reel1.jpg"><div class="play">▶</div></a>
-  <a class="reel-card" href="#"><img src="reel2.jpg"><div class="play">▶</div></a>
-  <a class="reel-card" href="#"><img src="reel3.jpg"><div class="play">▶</div></a>
+  <a class="reel-card"><img src="reel1.jpg"><div class="play">▶</div></a>
+  <a class="reel-card"><img src="reel2.jpg"><div class="play">▶</div></a>
+  <a class="reel-card"><img src="reel3.jpg"><div class="play">▶</div></a>
 </div>
 </section>
 
-<section>
+<section id="packages">
 <h2>Packages</h2>
 
 <div class="packages">
@@ -287,7 +332,7 @@ footer{
 </div>
 </section>
 
-<footer>
+<footer id="contact">
 © CineReelz • Shot on iPhone • Instant Reels
 </footer>
 
