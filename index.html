@@ -40,18 +40,41 @@ header img{height:44px}
 /* HERO */
 .hero{
   min-height:100vh;
-  padding-top:170px;
+  padding-top:140px;
   text-align:center;
 }
-.hero small{letter-spacing:3px;color:#B266FF}
-.hero h1{font-size:3rem;margin:20px 0}
-.hero .big{font-size:4.6rem;color:#8F3DFF;font-weight:bold}
+.hero-logo{
+  width:140px;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 25px rgba(143,61,255,.6));
+}
+.hero small{
+  letter-spacing:3px;
+  color:#B266FF;
+}
+.hero h1{
+  font-size:3rem;
+  margin:20px 0 10px;
+}
+.hero .big{
+  font-size:4.8rem;
+  color:#8F3DFF;
+  font-weight:bold;
+}
 .hero p{opacity:.9}
 
-/* REELS */
-section{padding:100px 20px;text-align:center}
-h2{color:#8F3DFF;font-size:2rem;margin-bottom:40px}
+/* SECTIONS */
+section{
+  padding:100px 20px;
+  text-align:center;
+}
+h2{
+  color:#8F3DFF;
+  font-size:2rem;
+  margin-bottom:40px;
+}
 
+/* REELS */
 .reels{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -81,15 +104,14 @@ h2{color:#8F3DFF;font-size:2rem;margin-bottom:40px}
   font-size:2.5rem;
 }
 
-/* PACKAGES – NEW DESIGN */
+/* PACKAGES */
 .packages{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:30px;
   max-width:1100px;
   margin:auto;
 }
-
 .package{
   background:rgba(0,0,0,.55);
   backdrop-filter:blur(12px);
@@ -98,15 +120,13 @@ h2{color:#8F3DFF;font-size:2rem;margin-bottom:40px}
   box-shadow:0 0 50px rgba(143,61,255,.25);
   text-align:left;
 }
-
 .package h3{
   font-size:1.8rem;
-  margin-bottom:6px;
 }
 .package .tag{
   color:#B266FF;
   font-size:13px;
-  margin-bottom:15px;
+  margin:6px 0 15px;
 }
 .package .price{
   font-size:2.6rem;
@@ -136,6 +156,14 @@ h2{color:#8F3DFF;font-size:2rem;margin-bottom:40px}
   text-decoration:none;
 }
 
+/* CENTER LAST PACKAGE */
+.center-package{
+  grid-column:1 / -1;
+  max-width:360px;
+  margin:0 auto;
+}
+
+/* FOOTER */
 footer{
   padding:40px;
   text-align:center;
@@ -143,9 +171,12 @@ footer{
   color:#aaa;
 }
 
+@media(max-width:900px){
+  .packages{grid-template-columns:1fr}
+}
 @media(max-width:600px){
-.hero h1{font-size:2.3rem}
-.hero .big{font-size:3.4rem}
+  .hero h1{font-size:2.3rem}
+  .hero .big{font-size:3.4rem}
 }
 </style>
 </head>
@@ -153,11 +184,14 @@ footer{
 <body>
 
 <header>
-  <img src="logo.png">
+  <img src="logo.png" alt="CineReelz Logo">
   <a class="btn" href="https://wa.me/919493903229" target="_blank">Book Your Slot Now</a>
 </header>
 
 <div class="hero">
+  <!-- LOGO ADDED HERE -->
+  <img src="logo.png" class="hero-logo" alt="CineReelz Logo">
+
   <small>INSTANT REEL SERVICE</small>
   <h1>Instant Reels.</h1>
   <div class="big">Real Moments.</div>
@@ -175,6 +209,7 @@ footer{
 
 <section>
 <h2>Packages</h2>
+
 <div class="packages">
 
 <div class="package">
@@ -216,7 +251,7 @@ footer{
 <a href="https://wa.me/919493903229">Book Now</a>
 </div>
 
-<div class="package">
+<div class="package center-package">
 <h3>Grand Finale Package</h3>
 <div class="tag">The entire story</div>
 <div class="price">₹72,999/-</div>
