@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CineReelz – Instant iPhone Reels in 10 Minutes | Hyderabad</title>
+<title>CineReelz – Instant iPhone Reels</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="CineReelz delivers cinematic iPhone reels in just 10 minutes.">
 
 <style>
 *{box-sizing:border-box}
@@ -20,24 +18,34 @@ body{
     linear-gradient(180deg, #14001f 0%, #07000c 100%);
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header{
   position:fixed;
   top:0;
   width:100%;
-  padding:14px 28px;
-  display:grid;
-  grid-template-columns:auto 1fr auto;
-  align-items:center;
+  height:64px;
   background:#14001f;
   z-index:1000;
 }
-header img{height:40px}
-
-/* ICON NAV CENTER */
-.icon-nav{
+.header-inner{
+  position:relative;
+  height:100%;
   display:flex;
-  justify-content:center;
+  align-items:center;
+  padding:0 28px;
+}
+
+/* LEFT LOGO */
+.header-left img{
+  height:38px;
+}
+
+/* CENTER ICON NAV (TRUE CENTER) */
+.icon-nav{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
   gap:28px;
 }
 .icon-nav a{
@@ -54,35 +62,32 @@ header img{height:40px}
   filter:drop-shadow(0 0 8px rgba(178,102,255,.9));
 }
 
-/* RIGHT */
+/* RIGHT ACTIONS */
 .header-right{
+  margin-left:auto;
   display:flex;
   align-items:center;
   gap:16px;
 }
-
-/* BUTTON */
-.btn{
-  background:#8F3DFF;
-  padding:10px 22px;
-  border-radius:10px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:bold;
-}
-
-/* INSTAGRAM */
 .insta-link svg{
   width:22px;
   height:22px;
   stroke:#8F3DFF;
   fill:none;
 }
+.btn{
+  background:#8F3DFF;
+  padding:10px 22px;
+  border-radius:10px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
-  padding-top:160px;
+  padding-top:140px;
   text-align:center;
 }
 .hero small{letter-spacing:3px;color:#B266FF}
@@ -95,7 +100,7 @@ header img{height:40px}
 
 /* PHONE */
 .phone-wrapper{
-  margin-top:50px;
+  margin-top:40px;
   display:flex;
   justify-content:center;
 }
@@ -103,38 +108,22 @@ header img{height:40px}
   width:360px;
   max-width:90%;
   filter:drop-shadow(0 0 70px rgba(143,61,255,.85));
-  animation:floatPhone 4s ease-in-out infinite;
+  animation:float 4s ease-in-out infinite;
 }
-@keyframes floatPhone{
+@keyframes float{
   0%{transform:translateY(0)}
   50%{transform:translateY(-14px)}
   100%{transform:translateY(0)}
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
   padding:120px 20px;
   text-align:center;
 }
 h2{color:#8F3DFF;margin-bottom:40px}
 
-/* REELS */
-.reels{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  max-width:1000px;
-  margin:auto;
-}
-.reel-card{
-  display:block;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 0 45px rgba(143,61,255,.55);
-}
-.reel-card img{width:100%}
-
-/* PACKAGES */
+/* ================= PACKAGES ================= */
 .packages{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -168,7 +157,7 @@ h2{color:#8F3DFF;margin-bottom:40px}
   text-align:center;
 }
 
-/* POPULAR */
+/* MOST POPULAR */
 .popular{position:relative}
 .popular::before{
   content:"MOST POPULAR";
@@ -181,30 +170,21 @@ h2{color:#8F3DFF;margin-bottom:40px}
   font-size:11px;
 }
 
-/* CENTER 4TH SAME SIZE */
-.center-package{
+/* GRAND FINALE — SAME SIZE + CENTERED */
+.grand{
   grid-column:1 / -1;
-  max-width:350px;
-  margin:0 auto;
+  display:flex;
+  justify-content:center;
+}
+.grand .package{
+  width:100%;
+  max-width:350px; /* SAME visual size as others */
 }
 
-/* FAQ */
-.faq{
-  max-width:900px;
-  margin:auto;
-  text-align:left;
-}
-.faq-item{
-  background:rgba(255,255,255,0.06);
-  padding:20px;
-  border-radius:14px;
-  margin-bottom:16px;
-}
-
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media(max-width:900px){
   .packages{grid-template-columns:1fr}
-  .center-package{max-width:100%}
+  .grand .package{max-width:100%}
 }
 </style>
 </head>
@@ -212,24 +192,28 @@ h2{color:#8F3DFF;margin-bottom:40px}
 <body>
 
 <header>
-  <img src="logo.png" alt="CineReelz">
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="logo.png" alt="CineReelz">
+    </div>
 
-  <div class="icon-nav">
-    <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
-    <a href="#discover"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
-    <a href="#packages"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg></a>
-    <a href="#faq"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></a>
-  </div>
+    <!-- CENTER ICONS -->
+    <nav class="icon-nav">
+      <a href="#home"><svg viewBox="0 0 24 24"><path d="M3 10L12 3l9 7v11h-6v-6H9v6H3z"/></svg></a>
+      <a href="#packages"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16"/></svg></a>
+      <a href="#faq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/></svg></a>
+    </nav>
 
-  <div class="header-right">
-    <a class="insta-link" href="https://www.instagram.com/cine_reelz_" target="_blank">
-      <svg viewBox="0 0 24 24">
-        <rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/>
-        <circle cx="12" cy="12" r="5" stroke-width="2"/>
-        <circle cx="17.5" cy="6.5" r="1.2" fill="#8F3DFF"/>
-      </svg>
-    </a>
-    <a class="btn" href="https://wa.me/919493903229" target="_blank">Book Your Slot</a>
+    <div class="header-right">
+      <a class="insta-link" href="https://www.instagram.com/cine_reelz_" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke-width="2"/>
+          <circle cx="12" cy="12" r="5" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="#8F3DFF"/>
+        </svg>
+      </a>
+      <a class="btn" href="https://wa.me/919493903229">Book Your Slot</a>
+    </div>
   </div>
 </header>
 
@@ -239,18 +223,9 @@ h2{color:#8F3DFF;margin-bottom:40px}
   <div class="big">Real Moments.</div>
 
   <div class="phone-wrapper">
-    <img src="phone.png" alt="Phone Mockup">
+    <img src="phone.png">
   </div>
 </div>
-
-<section id="discover">
-  <h2>Discover Vibes</h2>
-  <div class="reels">
-    <a class="reel-card" href="https://www.instagram.com/reel/DUHsX3yEt-K/" target="_blank"><img src="reel1.jpg"></a>
-    <a class="reel-card" href="https://www.instagram.com/reel/DTg8QB3Ekcy/" target="_blank"><img src="reel2.jpg"></a>
-    <a class="reel-card" href="https://www.instagram.com/reel/DTu-y5hkkKs/" target="_blank"><img src="reel3.jpg"></a>
-  </div>
-</section>
 
 <section id="packages">
   <h2>Packages</h2>
@@ -258,56 +233,39 @@ h2{color:#8F3DFF;margin-bottom:40px}
     <div class="package">
       <h3>Standard</h3>
       <div class="price">₹9,999</div>
-      <ul>
-        <li>1 Event</li><li>3 Reels</li><li>Instant Delivery</li>
-      </ul>
+      <ul><li>1 Event</li><li>3 Reels</li><li>Instant Delivery</li></ul>
       <a href="#">Book Now</a>
     </div>
 
     <div class="package popular">
       <h3>Spotlight</h3>
       <div class="price">₹27,999</div>
-      <ul>
-        <li>3 Events</li><li>12 Reels</li><li>Raw Footage</li>
-      </ul>
+      <ul><li>3 Events</li><li>12 Reels</li><li>Raw Footage</li></ul>
       <a href="#">Book Now</a>
     </div>
 
     <div class="package">
       <h3>Premier</h3>
       <div class="price">₹45,999</div>
-      <ul>
-        <li>4 Events</li><li>15 Reels</li><li>Raw Footage</li>
-      </ul>
+      <ul><li>4 Events</li><li>15 Reels</li><li>Raw Footage</li></ul>
       <a href="#">Book Now</a>
     </div>
 
-    <div class="package center-package">
-      <h3>Grand Finale</h3>
-      <div class="price">₹72,999</div>
-      <ul>
-        <li>6 Events</li><li>24 Reels</li><li>Instant Delivery</li>
-      </ul>
-      <a href="#">Book Now</a>
+    <!-- GRAND FINALE FIXED -->
+    <div class="grand">
+      <div class="package">
+        <h3>Grand Finale</h3>
+        <div class="price">₹72,999</div>
+        <ul><li>6 Events</li><li>24 Reels</li><li>Instant Delivery</li></ul>
+        <a href="#">Book Now</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="faq">
   <h2>FAQs</h2>
-  <div class="faq">
-    <div class="faq-item"><strong>How fast is delivery?</strong><br>Within 10 minutes after shoot.</div>
-    <div class="faq-item"><strong>Is editing included?</strong><br>Yes, edited instantly on iPhone.</div>
-    <div class="faq-item"><strong>Do you shoot only on iPhone?</strong><br>Yes, latest iPhone for consistency.</div>
-    <div class="faq-item"><strong>Do you provide raw footage?</strong><br>Included in selected packages.</div>
-    <div class="faq-item"><strong>Is advance booking required?</strong><br>Recommended for events.</div>
-    <div class="faq-item"><strong>Where do you operate?</strong><br>Currently serving Hyderabad.</div>
-  </div>
 </section>
-
-<footer style="text-align:center;padding:40px;color:#aaa">
-© CineReelz • Hyderabad
-</footer>
 
 </body>
 </html>
